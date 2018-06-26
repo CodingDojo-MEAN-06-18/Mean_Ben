@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script>
+        let students = [
+        {name: 'Remy', cohort: 'Jan'},
+        {name: 'Genevieve', cohort: 'March'},
+        {name: 'Chuck', cohort: 'Jan'},
+        {name: 'Osmund', cohort: 'June'},
+        {name: 'Nikki', cohort: 'June'},
+        {name: 'Boris', cohort: 'June'}
+        ];
+        
+        for(var i of students){
+          console.log("Name:",i.name, "cohort:",i.cohort )
+        }
+
+        let users = {
+            employees: [
+                {'first_name':  'Miguel', 'last_name' : 'Jones'},
+                {'first_name' : 'Ernie', 'last_name' : 'Bertson'},
+                {'first_name' : 'Nora', 'last_name' : 'Lu'},
+                {'first_name' : 'Sally', 'last_name' : 'Barkyoumb'}
+            ],
+            managers: [
+               {'first_name' : 'Lillian', 'last_name' : 'Chambers'},
+               {'first_name' : 'Gordon', 'last_name' : 'Poe'}
+            ]
+         };
+        
+        for (var key in users){
+          console.log(key.toUpperCase())
+          var count=0
+          for(var x in users[key]){
+            var first_name=users[key][x]['first_name']
+            var last_name=users[key][x]['last_name']
+            count = count +1
+            var fullname=first_name.length+last_name.length
+        
+            console.log(`${count} ${first_name} ${last_name} ${fullname}`)
+          }
+          
+        }
+        
+         
+    </script>
+    
+    <title>JavaScript Objects</title>
+    
+</head>
+<body>
+    
+</body>
+</html>

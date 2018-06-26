@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script>
+            $(document).ready(function(){
+                function $Dojo(id) {
+                    this.myId = document.getElementById(id);
+                    this.click = function (callback) {
+                        this.myId.addEventListener("click", callback);
+                    };
+                
+                    this.hover = function (hoverin, hoverout) {
+                        this.myId.addEventListener("mouseover", hoverin);
+                        this.myId.addEventListener("mouseout", hoverout);
+                    };
+                
+                    return this;
+                }
+            });
+
+    </script>
+    
+    <title>DojoQuery</title>
+    
+</head>
+<body>
+    <button id="button">I am a button</button>
+    <div id="output"></div>
+       
+</body>
+</html>

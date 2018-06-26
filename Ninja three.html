@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script>
+            function Ninja(name){
+                var speed=3;
+                var strength=3;
+              
+                this.health=100;
+                this.lostHealth=0;
+                this.name=name;
+                this.sayName=function(){
+                  console.log(`my ninja name is ${this.name}`)
+                  return this
+                }
+                this.showStats=function(){
+                  console.log(`Name: ${this.name}, Health: ${this.health}, Speed: ${speed}, Strength: ${strength}`)
+                  return this
+                }
+              
+              }
+              Ninja.prototype.drinkSake=function(){
+                  this.health=this.health+10
+                  console.log(`gain health ${this.health}`)
+                  return this
+                }
+              Ninja.prototype.punch=function(ninja){
+                ninja.lostHealth=ninja.lostHealth+5
+                if (ninja.lostHealth===ninja.health){
+              
+                  console.log(`${ninja.name} has ${ninja.health-ninja.lostHealth} Health! and is killed by ${this.name}`)
+                }
+                else
+                console.log(`${ninja.name} was punched by ${this.name} and lost ${ninja.lostHealth} Health!`)
+                return this
+              }
+              Ninja.prototype.kick=function(ninja){
+                ninja.lostHealth=ninja.lostHealth+15
+                console.log(`${ninja.name} was kicked by ${this.name} and lost ${ninja.lostHealth} Health!`)
+                return this
+              }
+              
+             function Sensei(...args){
+                Ninja.apply(this,args)
+                this.speed=10;
+                this.strength=10;
+                this.health=200;
+                this.showStats=function(){
+                    console.log(`Name: ${this.name}, Health: ${this.health}, Speed: ${this.speed}, Strength: ${this.strength}`)
+                    return this
+                  }
+
+             }
+             
+             Sensei.prototype = Object.create(Ninja.prototype)
+             Sensei.prototype.speakWisdom=function(){
+                 console.log("What one programmer can do in one month, two programmers can do in two months.")
+             }
+
+             var superman = new Sensei('teacher')
+             superman.sayName()
+             superman.speakWisdom()
+             superman.showStats()
+             console.log(superman)
+
+             var redninja = new Ninja('teacher')
+             redninja.showStats()
+             console.log(redninja)
+
+    </script>
+    
+    <title>Ninja 1</title>
+    
+</head>
+<body>
+    <button id="button">I am a button</button>
+    <div id="output"></div>
+       
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script>
+      class Deck{
+        constructor(){
+          this.deck=[];
+        }
+      
+        card(){
+          this.deck=[]
+          var suits = ['Clubs', 'Hearts', 'Diamonds', 'Spades'];
+          var nums = ['Ace', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'Jack', 'Queen', 'King'];
+      
+          for ( let suit in suits){
+            for (let num in nums){
+              this.deck.push(`${suits[suit]}: ${nums[num]}`);
+            }
+            
+          }
+          return this
+        }
+      
+        shuffle(){
+          let m =this.deck.length, t, i;
+          while(m){
+           i = Math.floor(Math.random() * m--);
+           t = this.deck[m];
+           this.deck[m] = this.deck[i];
+           this.deck[i] = t;
+          }
+      
+          return this
+        }
+        deal(){
+          this.deck.pop();
+          return this
+        }
+      
+      }
+      
+      class Player{
+        constructor(name){
+          this.name=name;
+          this.hand=[];
+        }
+        draw(deck){
+          this.hand.push(deck.deal());
+          return this;
+        }
+        discard(){
+          this.hand.pop();
+          return this;
+        }
+      }
+      
+      
+      
+      var deck1 = new Deck()
+      console.log(deck1.deck)
+      console.log(deck1.card().shuffle())
+      
+      console.log(deck1.deck.length)
+      var player1= new Player("wanda")
+      console.log(player1.draw(deck1))
+      console.log(player1.hand)
+      console.log('--------------->',deck1)
+      
+      
+       
+
+    </script>
+    
+    <title>Deck of Card</title>
+    
+</head>
+<body>
+    
+       
+</body>
+</html>

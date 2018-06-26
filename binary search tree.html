@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script>
+        function Bst(){
+            this.root=null;
+           
+          }
+          
+          function Node(val){
+            this.value=val;
+            this.left=null;
+            this.right=null;
+          }
+          
+          Bst.prototype.insert =function(val){
+              const node=this.root
+              if(node===null){
+                this.root = new Node(val)
+                return this
+              }else{
+                var tree = function(node){ //root value
+                  if(val < node.value){
+                    if(node.left===null){
+                      node.left = new Node(val);
+                      return this
+                    }else if(node.left != null){
+                    return tree(node.left) // reaccuring 
+                    }
+                } else if(val > node.value){
+                  if(node.right===null){
+                    node.right = new Node(val);
+                  }else if(node.right != null){
+                  return tree(node.right)
+                  }
+                }
+              }
+            };
+            return tree(node)
+          }
+          var firstNode = new Bst()
+           firstNode.insert(50)
+           firstNode.insert(40)
+          //  firstNode.insert(30)
+          //  firstNode.insert(20)
+          //  firstNode.insert(10)
+          //  firstNode.insert(5)
+          //  firstNode.insert(60)
+           firstNode.insert(70)
+           firstNode.insert(30)
+           firstNode.insert(80)
+           
+          console.log(firstNode)
+          console.log("________________________________")
+          console.log(firstNode.root)
+          
+          
+          
+    </script>
+    
+    <title>Trivia</title>
+    
+</head>
+<body>
+    <button id="button">I am a button</button>
+    <div id="output"></div>
+       
+</body>
+</html>

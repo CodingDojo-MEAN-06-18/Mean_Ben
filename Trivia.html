@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script>
+            $(document).ready(function(){
+                $(document).on("click","button", function(){
+                    $.get("https://opentdb.com/api.php?amount=10", displayName) 
+                    function displayName(data){
+                            console.log(data.results)
+                            var html_str=""
+                            for (var i=0; i<data.results.length; i++){
+                                
+                                html_str += "<p>" + data.results[i].category + "</p>"
+                            }
+                            $('#output').html(html_str)
+                        }
+                });
+                    
+            });
+
+    </script>
+    
+    <title>Trivia</title>
+    
+</head>
+<body>
+    <button id="button">I am a button</button>
+    <div id="output"></div>
+       
+</body>
+</html>
