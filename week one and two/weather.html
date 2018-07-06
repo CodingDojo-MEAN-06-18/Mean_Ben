@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('form').submit(function() {
+                var url="";
+                var city_name=$('input[name="name"]').val();
+                var api_id="&&appid=bf623345ef04dc86d1898a12b8f86ed1";
+                var temp_type="&units=imperial";
+                url+="http://api.openweathermap.org/data/2.5/weather?q="+city_name+temp_type+api_id;
+
+                $.get(url, function(data) {
+                    var str="";
+                    //console.log(data);
+                    str += "<h1>Name of the City</h1>"
+                    str += "<p>"+data.name+"</p>"
+                    str += '<h1>Tempture</h1>'
+                    str += "<p>"+data.main.temp+"</p>"
+                    str += '<h1>Condition</h1>'
+                    str += `<p>${data.weather[0].main}</p>`
+                    console.log(str);
+                    $('#details').html(str)
+
+                }, 'json');
+                $('input[name="name"]').val('');
+                return false;
+                
+            });
+        });
+        
+
+    </script>
+    
+    <title>Weather</title>
+    
+</head>
+<body>
+    <form>
+        <input type="text" placeholder="Location" name="name" >
+        <button >Search Weather</button>
+    </form>
+     <div id="details">Details</div>  
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+    <title>form</title>
+  </head>
+  <body>
+    <form action="/process" method="POST">
+      <label for=""><input type="text" name='name'>Name: </label>
+      <label for="">Dojo Locaiton: </label>
+      <select name="location">
+          <option value="Mountain View">Mountain View</option>
+          <option value="Seattle">Seattle</option>
+          <option value="Now York">Now York</option>
+          <option value="San Diego">San Diego</option>
+      </select>
+      <label for="">Favorite Language: </label>
+      <select name="favor">
+          <option value="JavaScript">JavaScript</option>
+          <option value="Python">Python</option>
+          <option value="Java">Java</option>
+          <option value="C++">C++</option>
+      </select>
+      <textarea name="comment" id="" cols="30" rows="10"></textarea>
+      <input type="submit" value="Submit">
+    </form>
+    <a href="/">refresh</a>
+    <a href="/reset">reset</a>
+    <h4>page has been reload <%=counter%> times</h4>
+
+  </body>
+</html>

@@ -1,0 +1,17 @@
+{
+  "name": "first_app",
+  "version": "1.0.0",
+  "description": "mean stack ",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.16.3",
+    "npm": "^6.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "ben",
+  "license": "ISC"
+}

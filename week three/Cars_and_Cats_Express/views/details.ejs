@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Details</title>
+  </head>
+  <body>
+    <a href="/cats">Go Back</a>
+    <h1>this is a page for <%=content.name%></h1>
+      <h4>Favorite food: <%= content.food %></h4>
+      <h4>Age:  <%= content.age %></h4>
+      <h4>Sleeping spots:</h4>
+      <ul>
+        <% for(var habit of content.habits) {%>
+        <li><%=habit%></li>
+        <% } %>
+      </ul>
+      <img src=" <%=content.img%>" alt="">
+
+  </body>
+</html>
