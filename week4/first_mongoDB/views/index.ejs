@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script>
+      $(document).ready(function(){
+        $("#clickSubmitButton").click(function(){
+          $('form').submit();
+        });
+
+      }); <!-- end of ready -->
+    </script>
+    <title>Mongoose</title>
+  </head>
+  <body>
+    <div class="container">
+      <button type="button" class="btn btn-primary pull-mid" data-toggle="modal" data-target="#mybutton" style="margin-top:30px;">Click Me!</button>
+
+      <div class="modal fade" id="mybutton" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">About You</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form action="/user" method="POST">
+                <div class="form-group">
+                  <label for="name" class="col-form-label">Name:</label>
+                  <input type="text" class="form-control" name="name">
+                </div>
+                <div class="form-group">
+                  <label for="age" class="col-form-label">Age:</label>
+                  <input type="number" class="form-control" name="age">
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" id="clickSubmitButton">Submit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div> <!--end of line -->
+</body>
+</html>

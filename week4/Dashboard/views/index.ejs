@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+    <title>Show All Animals</title>
+  </head>
+    <body>
+      <div class="container">
+        <ul>
+          <% if(messages.success) {%>
+          <li><%= messages.success %></li>
+          <% } %>
+        </ul>
+        <ul>
+          <% if(messages.errors) {%>
+          <% for(var message of messages.errors) %>
+          <li><%= message %></li>
+          <% } %>
+        </ul>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">name</th>
+              <th scope="col">leg</th>
+              <th scope="col">habit</th>
+              <th scope="col">future action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% for (animal of animals){%>
+              <tr>
+                <th scope="row"><%=animal.name %></th>
+                <td><%=animal.leg %></td>
+                <td><%=animal.habit %></td>
+                <td>
+                  <a href="/show/<%=animal.id %>">
+                    <button type="button" class="btn btn-secondary">Show</button>
+                  </a>
+                  <a href="/edit/<%=animal.id %>">
+                    <button type="button" class="btn btn-primary">Edit</button>
+                  </a>
+                  <a href="/destroy/<%=animal.id %>">
+                    <button type="button" class="btn btn-danger">Delete</button>
+                  </a>
+                </td>
+              </tr>
+
+              <% } %>
+
+          </tbody>
+        </table>
+        <div class="row">
+            <div class="col">
+              <a href="/new">
+                <button type="button" class="btn btn-info ">Add an Animal</button>
+              </a>
+
+            </div>
+        </div>
+      </div>
+
+  </body>
+</html>

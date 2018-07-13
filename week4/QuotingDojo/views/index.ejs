@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>index</title>
+  </head>
+  <body>
+    <div class="container">
+      <ul>
+        <% if(messages.displayErrors) {%>
+        <% for(var message of messages.displayErrors) %>
+        <li><%= message %></li>
+        <% } %>
+      </ul>
+
+
+      <form class="" action="/quotes" method="POST">
+        <label for="name">Your name: <input type="text" name="name" ></label><br>
+        <label for="quote">Your quote: <textarea name="quote" rows="8" cols="80"></textarea></label><br>
+        <input type="submit" value="add my quote!">
+      </form>
+      <button type="button" name="button"><a href="/quotes">skip to quotes</a></button>
+    </div>
+
+  </body>
+</html>

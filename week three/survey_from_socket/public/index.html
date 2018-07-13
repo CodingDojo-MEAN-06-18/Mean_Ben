@@ -6,38 +6,63 @@
     <script type ="text/javascript">
         $(document).ready(function (){
 
-            var socket = io(); //1
+            var socket = io(); // establish the connection to server
 
             socket.on('greeting', function (data) { //4
                 console.log(data.msg); //5
-                socket.emit('thankyou', { msg: 'Thank you for connecting me! -Client' }); //6
+                socket.emit('thankyou', { msg: 'incoming message' }); //6
             });
+            //emit posting form to server
+            $("form").submit(function(){
+              socket.emit('post_form',{
+                name:$("#name").val(),
+                location:$("#location").val(),
+                favor:$("#favor").val(),
+                comment: $("#comment").val()
+
+              })
+              return false;
+            });
+
+            //accepting updated messages
+            socket.on("updated_message",function(data){
+              $("#updated_message").html(JSON.stringify(data.msg))
+            })
+            //accepting random_num
+            socket.on('random_num',function(data){
+              $("#random_num").html(data.num)
+            });
+            //
+
          })
     </script>
 </head>
 <body>
+    <h4 id='updated_message'> messages will be updated at here</h4>
+    <h4 id='random_num'>random number</h4>
     <h1>Fun with sockets</h1>
-    <form action="/process" method="POST">
-      <label for=""><input type="text" name='name'>Name: </label>
+    <form action="" method="">
+      <label for=""><input type="text" id='name' name='name'>Name: </label>
       <label for="">Dojo Locaiton: </label>
-      <select name="location">
+      <select name="location" id='location'>
           <option value="Mountain View">Mountain View</option>
           <option value="Seattle">Seattle</option>
           <option value="Now York">Now York</option>
           <option value="San Diego">San Diego</option>
       </select>
       <label for="">Favorite Language: </label>
-      <select name="favor">
+      <select name="favor" id='favor'>
           <option value="JavaScript">JavaScript</option>
           <option value="Python">Python</option>
           <option value="Java">Java</option>
           <option value="C++">C++</option>
       </select>
-      <textarea name="comment" id="" cols="30" rows="10"></textarea>
-      <input type="submit" value="Submit">
+      <textarea name="comment" id="comment" cols="30" rows="10"></textarea>
+      <input type="submit" id="submit" value="Submit">
     </form>
     <a href="/">refresh</a>
     <a href="/reset">reset</a>
-    <h4>page has been reload <%=counter%> times</h4>
+
+
 </body>
 </html>

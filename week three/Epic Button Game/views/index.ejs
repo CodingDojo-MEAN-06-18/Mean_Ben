@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <script>
+      $(document).ready(function(){
+          // establish connection with server
+          var socket = io.connect();
+          socket.emit('greetings',{msg:'incoming socket connection'})
+          $("#clickPushButton").click(function(){
+              socket.emit("pushButton")
+          });
+          $("#clickRestButton").click(function (){
+              socket.emit("resetButton")
+          });
+          //update count
+          socket.on("updateCount", function(count){
+            $("#count").html(count);
+          })
+          // reset count to 0
+          socket.on("updateCount", function(count){
+            $("#count").html(count);
+          })
+
+      }); <!-- end of ready -->
+    </script>
+    <title>Epic Button Game</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-10">
+          <h1>The Button has been pushed <span id="count">0</span> time(s)</h1>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-8">
+          <h4>Push the button below to update the count!</h4>
+        </div>
+        <div class = "col-6">
+          <button type="button" class="btn btn-primary" id="clickPushButton">Push the epic button</button>
+        </div>
+      </div>
+
+      <div class="row justify-content-end">
+        <div class="col-6">
+          <button type="button" class="btn btn-danger" id="clickRestButton">Reset</button>
+        </div>
+
+      </div>
+
+    </div>
+  </body>
+</html>
