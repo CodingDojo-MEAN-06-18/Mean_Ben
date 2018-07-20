@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+    <title>message board</title>
+  </head>
+  <body>
+    <%= user %>
+    <a href="/logout">Logout</a>
+    <h4>Welcome <%= user.first_name %> <%= user.last_name %> to the Login page!</h4>
+    <h1>User Info</h1>
+    <% if(messages.errors) {%>
+    <li><%= messages.errors %></li>
+    <% } %>
+    <% if(messages.success) {%>
+    <li><%= messages.success %></li>
+    <% } %>
+    <div class="container">
+      <fieldset>
+        <legend>Secret Form</legend>
+        <form action="/process/<%= user.id %>" method="POST">
+          <div class="form-group">
+            <label for="exampleInputName">Secret:</label>
+            <textarea name="post" rows="4" cols="80"></textarea>
+          </div>
+          <div class="row justify-content-end">
+            <div class="col-2">
+              <button type="submit" class="btn  btn-success">Submit</button>
+            </div>
+            <!-- <a href="/all"><button class="btn  btn-primary pull-left">Get All</button></a> -->
+          <!-- </div> -->
+        </form>
+      </fieldset>
+    </div>
+
+  </body>
+</html>

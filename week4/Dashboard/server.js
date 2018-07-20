@@ -2,7 +2,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
-const port = process.env.port || 8000;
+const port = process.env.port || 8001;
 const bodyParser = require('body-parser');
 const session = require('express-session');
 const flash = require('express-flash');
@@ -50,7 +50,7 @@ const animal = mongoose.model("animal", animalSchema);
 app.get('/', function(req, res){
   animal.find()
   .then(animals =>{
-    // console.log('collection------------------>',animals);
+    console.log('collection------------------>',animals);
     res.render('index',{animals});
   })
   .catch()
@@ -95,7 +95,7 @@ app.post('/update/:id', function(req, res){
   animal.update({_id:req.params.id},req.body)
   .then(result=>{
     req.flash("success", 'updated successfully!')
-    res.redirect('/')
+    res.redirect(`/edit/${req.params.id}`)
     // res.render('edit',{"results":result[0]})
   })
   .catch(error=>{

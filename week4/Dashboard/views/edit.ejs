@@ -8,16 +8,11 @@
   <body>
     <div class="container">
       <ul>
-        <% if(messages.errors) {%>
-        <% for(var message of messages.errors) %>
-        <li><%= message %></li>
-        <% } %>
-      </ul>
-      <ul>
         <% if(messages.success) {%>
-        <li><%= message.success %></li>
+        <li><%= messages.success %></li>
         <% } %>
       </ul>
+
 
 
       <form action="/update/<%= results.id%>" method="POST">

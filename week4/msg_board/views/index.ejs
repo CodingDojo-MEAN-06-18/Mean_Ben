@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+    <title>message board</title>
+  </head>
+  <body>
+    <div class="container">
+      <a href="/all"><button class="btn  btn-primary pull-left">Get All</button></a>
+      <fieldset>
+        <legend>let's start</legend>
+        <form action="/create" method="POST">
+          <div class="form-group">
+            <label for="exampleInputName">Name:</label>
+            <input type="text" class="form-control" id="exampleInputName" aria-describedby="nameHelp" placeholder="Enter name" name='name'>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputMessage">Message:</label>
+            <textarea rows="4" cols="80" class="form-control" placeholder="Message Area" name="message"></textarea>
+          </div>
+          <div class="row justify-content-end">
+            <div class="col-2">
+              <button type="submit" class="btn  btn-primary pull-left">Post Message</button>
+            </div>
+          </div>
+        </form>
+      </fieldset>
+      <% for (var msg of messages){%>
+      <h4>id: <%= msg._id %></h4>
+      <h4>Name: <%= msg.name %></h4>
+      <h4>Message: <%= msg.message %></h4>
+      <h4>Comments Area:</h4>
+        <% for (var cm of msg.comments){%>
+      <p>ID: <%= cm.id %>--<%= cm.name %> said:</p>
+      <ul>
+        <li><%= cm.text %></li>
+      </ul>
+        <% } %>
+
+
+      <fieldset>
+        <legend>Start Comment:</legend>
+        <form action="/comment/<%= msg._id %>" method="POST">
+          <div class="form-group">
+            <label for="exampleInputName">Name:</label>
+            <input type="text" class="form-control" id="exampleInputName" aria-describedby="nameHelp" placeholder="Enter name" name='name'>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputMessage">Comment:</label>
+            <textarea rows="2" cols="50" class="form-control" placeholder="Message Area" name="text"></textarea>
+          </div>
+          <div class="row justify-content-end">
+            <div class="col-2">
+              <button type="submit" class="btn  btn-secondary">Post a Comment</button>
+            </div>
+          </div>
+        </form>
+      </fieldset>
+      <% } %>
+
+    </div> <!-- end of container -->
+
+
+  </body>
+</html>

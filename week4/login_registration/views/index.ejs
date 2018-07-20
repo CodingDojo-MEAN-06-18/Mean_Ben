@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+    <title>message board</title>
+  </head>
+  <body>
+    <div class="container">
+      <% if(messages.logout) {%>
+      <li><%= messages.logout %></li>
+      <% } %>
+    <div class="row">
+      <div class="col-6">
+        <fieldset>
+          <legend>Login</legend>
+          <form action="/login" method="POST">
+            <div class="form-group">
+              <label for="exampleInputName">Email:</label>
+              <input type="text" class="form-control" id="exampleInputName" aria-describedby="nameHelp" placeholder="Enter name" name='email'>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputName">Password:</label>
+              <input type="text" class="form-control" id="exampleInputName" aria-describedby="nameHelp" placeholder="Enter password" name='password'>
+            </div>
+            <div class="row justify-content-end">
+              <div class="col-2">
+                <button type="submit" class="btn  btn-success">Login</button>
+              </div>
+              <!-- <a href="/all"><button class="btn  btn-primary pull-left">Get All</button></a> -->
+            <!-- </div> -->
+          </form>
+        </fieldset>
+      </div>
+      <div class="col-6">
+        <fieldset>
+          <legend>Registration</legend>
+          <form action="/registrar" method="POST">
+            <div class="form-group">
+              <label for="exampleInputName">Email:</label>
+              <input type="text" class="form-control" id="exampleInputName" aria-describedby="nameHelp" placeholder="Enter email" name='email'>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputName">First Name:</label>
+              <input type="text" class="form-control" id="exampleInputName" aria-describedby="nameHelp" placeholder="Enter your first name" name='first_name'>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputName">Last Name:</label>
+              <input type="text" class="form-control" id="exampleInputName" aria-describedby="nameHelp" placeholder="Enter your last name" name='last_name'>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputName">Password:</label>
+              <input type="text" class="form-control" id="exampleInputName" aria-describedby="nameHelp" placeholder="Enter your password" name='password'>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputName">Birthday:</label>
+              <input type="date" class="form-control" id="exampleInputName" aria-describedby="nameHelp" placeholder="Enter your birthday" name='birthday'>
+            </div>
+
+            <div class="row justify-content-end">
+              <div class="col-2">
+                <button type="submit" class="btn  btn-primary pull-left">Registrar</button>
+              </div>
+            </div>
+          </form>
+        </fieldset>
+      </div>
+    </div>
+    <% if(messages.errors) {%>
+    <li><%= messages.errors %></li>
+    <% } %>
+    <% if(messages.success) {%>
+    <li><%= messages.success %></li>
+    <% } %>
+    </div> <!-- end of container -->
+
+  </body>
+</html>
