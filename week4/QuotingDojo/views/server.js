@@ -2,7 +2,6 @@ const express = require('express');
 const path =require('path');
 const app = express();
 const port =process.env.port || 8000;
-const mongoose = require('mongoose');
 const flash = require('express-flash')
 const session = require('express-session')
 var bodyParser = require('body-parser');
@@ -20,7 +19,9 @@ app.use(session({
   cookie: {maxAge:60000}
 }));
 
-mongoose.connect('mongodb://localhost:27017/myquote',{ useNewUrlParser: true });
+require('../server/config/mongoose.js');
+require('../server/config/routes.js')(app);
+
 
 app.listen(port, ()=>console.log(`listening to port ${port}`));
 

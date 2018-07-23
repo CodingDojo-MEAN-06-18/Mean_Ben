@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
-var QuoteSchema = new mongoose.Schema({
+const {Schema} = mongoose;
+var QuoteSchema = new mongoose({
   name:{
     type:String,
     required:[true,'name is required'],
@@ -16,5 +17,4 @@ var QuoteSchema = new mongoose.Schema({
 },{timestamps:true});
 
 const myQuoteCollections = mongoose.model("myQuoteCollections", QuoteSchema);
-
 module.exports = mongoose.model("myQuoteCollections")

@@ -1,4 +1,4 @@
- =require('../models/quote.js')
+ const Quote = require('../models/quote.js')
 
 // All necessary requires, such as the Quote model.
 module.exports = {
