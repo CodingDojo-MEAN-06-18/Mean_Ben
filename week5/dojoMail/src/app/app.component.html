@@ -1,0 +1,22 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+   {{ title }}
+  </h1>
+
+<table>
+  <tr>
+    <th>Email</th>
+    <th>Importance</th>
+    <th>Subject</th>
+    <th>Content</th>
+  </tr>
+  <tr *ngFor = "let content of contents">
+    <td>{{content.email | lowercase }}</td>
+    <td *ngIf = 'content.importance'>High</td>
+    <td *ngIf = '!content.importance'>Low</td>
+    <td>{{content.subject | titlecase}}</td>
+    <td>{{content.content }}</td>
+
+  </tr>
+</table>
