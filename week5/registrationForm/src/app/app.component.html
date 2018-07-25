@@ -54,8 +54,9 @@
         />
         {{password.errors | json}}
         <br>
-        <input *ngIf='usersForm.valid' type="submit">
+        <input type="submit">
       </form>
+      {{template}}
     </div>
-  </div> <!-- end of panel-->
+  </div> <!-- end of panel *ngIf='usersForm.valid' -->
 </div> <!-- end of line -->
