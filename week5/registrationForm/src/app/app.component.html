@@ -1,0 +1,61 @@
+<div class="container">
+  <div class="panel panel-primary">
+    <div class="panel-heading">RegistrationForm</div>
+    <div class="panel-body">
+      {{usersForm.value | json}} <br>
+      {{users | json}}
+      <form (submit)="onSubmit($event, usersForm)" #usersForm=ngForm>
+        <label for="first_name">first name:</label>
+        <input
+        type="text"
+        name="first_name"
+        required
+        minlength="4"
+        maxlength="24"
+        [(ngModel)]="user.first_name"
+        #first_name='ngModel'
+        />
+        {{first_name.errors | json}}
+        <br>
+        <label for="last_name">last Mame:</label>
+        <input
+          type="text"
+          name="last_name"
+          required
+          minlength="4"
+          maxlength="24"
+          [(ngModel)]="user.last_name"
+          #last_name='ngModel'
+        />
+        {{last_name.errors | json}}
+        <br>
+        <label for="email">Email:</label>
+        <input
+          type="text"
+          name="email"
+          required
+          minlength="4"
+          maxlength="24"
+          [(ngModel)]="user.email"
+          #email='ngModel'
+        />
+        {{email.errors | json}}
+        <br>
+        <label for="password">Password:</label>
+        <input
+          type="text"
+          name="password"
+          required
+          minlength="10"
+          maxlength="24"
+          pattern="^([a-zA-Z0-9@*#+-]{8,15})$"
+          [(ngModel)]="user.password"
+          #password='ngModel'
+        />
+        {{password.errors | json}}
+        <br>
+        <input *ngIf='usersForm.valid' type="submit">
+      </form>
+    </div>
+  </div> <!-- end of panel-->
+</div> <!-- end of line -->

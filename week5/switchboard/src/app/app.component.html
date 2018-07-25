@@ -1,0 +1,19 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+   {{ title }}!
+  </h1>
+
+<div *ngFor ="let switch of switches; let i = index" class="switches">
+
+  <button type="button"
+  *ngIf="switch"
+  [ngClass]="{'green': switch}"
+  (click)="pressSwitch(i)">On</button>
+
+  <button type="button"
+   *ngIf="!switch"
+   [ngClass]="{'red': !switch}"
+   (click)="pressSwitch(i)">Off</button>
+
+</div>

@@ -1,0 +1,19 @@
+.switches{
+  display: inline-block;
+
+}
+
+button{
+  width: 60px;
+  height: 60px;
+  /* background-color:  #784004; */
+  border: 3px solid black;
+  margin-left: 1px;
+}
+.green{
+  background-color: green;
+}
+
+.red{
+  background-color: red;
+}

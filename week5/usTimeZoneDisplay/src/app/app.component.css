@@ -1,0 +1,10 @@
+.buttons{
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  outline: 1px solid black;
+  margin-left: 25px;
+}
+.color{
+  background-color: yellow;
+}
