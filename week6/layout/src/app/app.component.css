@@ -1,0 +1,37 @@
+.container{
+  margin: 0 auto;
+  border: 3px solid black;
+  width: 500px;
+  height: 363px;
+}
+
+.forBoth{
+  display: block;
+
+}
+
+.alpha{
+  display: inline-block;
+  border: 1px solid black;
+  width: 190px;
+  height: 190px;
+  margin-left: 10px;
+  margin-right: 10px;
+  vertical-align: top;
+}
+
+.beta{
+  display: inline-block;
+  border: 1px solid black;
+  width: 190px;
+  height: 190px;
+
+}
+
+.gamma{
+  display: inline-block;
+  border: 1px solid black;
+  width: 160px;
+  height: 80px;
+
+}

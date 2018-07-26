@@ -1,0 +1,5 @@
+<p>
+  from task - the parent
+</p>
+{{tasks | json}}
+<app-task-list [myTask]="tasks" (myEvent)="invoked($event)"><app-task-list>
