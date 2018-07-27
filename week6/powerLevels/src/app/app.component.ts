@@ -22,15 +22,14 @@ export class AppComponent {
 
   onSubmit(){
     event.preventDefault();
-    this.human = this.pwl
-    this.saiyan = this.pwl.inputPowerN * 10
-    this.superSaiyan = this.pwl.inputPowerN * 90
-    console.log(this.superSaiyan)
-    this.superSaiyanTwo = this.pwl.inputPowerN * 150
-    this.superSaiyanThree = this.pwl.inputPowerN * 250
-    this.superSaiyanFour = this.pwl.inputPowerN * 500
+    this.human = this.pwl;
+    this.saiyan = this.pwl.inputPowerN * 10;
+    this.superSaiyan = this.pwl.inputPowerN * 90;
+    this.superSaiyanTwo = this.pwl.inputPowerN * 150;
+    this.superSaiyanThree = this.pwl.inputPowerN * 250;
+    this.superSaiyanFour = this.pwl.inputPowerN * 500;
 
-    this.pwl = new PowerLevel()
+    this.pwl = new PowerLevel();
   }
 
 

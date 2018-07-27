@@ -1,0 +1,54 @@
+<div class="container">
+{{quoteCollection}}
+  <div class="row">
+    <div class="col">
+      <h1>Add a Quote</h1>
+        <form (submit)="onSubmit($event, authorForm)"  #authorForm="ngForm">
+          <div class="row">
+            <div class="col">
+              <textarea
+              rows="8"
+              cols="80"
+              placeholder="Enter your Quote Here"
+              name="quote"
+              required
+              minlength='4'
+              maxlength="200"
+              [(ngModel)]="author.quote"
+              #quote ="ngModel"
+              ></textarea> <br>
+              {{quote.errors | json}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="offset-md-3">
+              <label for="">Author: </label>
+              <input
+              type="text"
+              name="fullName"
+              required
+              minlength='1'
+              maxlength="32"
+              [(ngModel)]="author.fullName"
+              #fullName ="ngModel"
+              /><br>
+              {{fullName.errors | json}}
+            </div>
+          </div>
+          <div class="row">
+            <div class="offset-md-4">
+              <input type="submit" value="Add Quote" [disabled]="authorForm.invalid">
+            </div>
+          </div>
+        </form>
+    </div>
+  </div><!-- end of form line -->
+
+  <div class="row">
+    <div div class="col">
+      <h1>Quotes List</h1>
+      <app-quotes (delEvent)="delEvent($event)" [vQuoteCollection]="quoteCollection"></app-quotes>
+    </div>
+  </div>
+
+</div> <!-- end of line -->

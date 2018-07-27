@@ -26,7 +26,7 @@
             <legend >Human</legend>
             <p>Power Level: <app-human [vHuman]="human"></app-human></p>
           </fieldset>
-          <p *ngIf="human.inputPowerN >5">regular ppl</p>
+
         </div>
         <div class="col-3">
           <p>Power Level</p><app-saiyan [vSaiyan]="saiyan"></app-saiyan>
@@ -36,16 +36,16 @@
         </div>
         <div class="col-3">
           <p>Power Level</p><app-super-saiyan-two [vSuperSaiyanTwo]="superSaiyanTwo"></app-super-saiyan-two>
-          <p *ngIf="superSaiyanTwo >9000">Over 9000!</p>
+
 
         </div>
         <div class="col-3">
           <p>Power Level</p><app-super-saiyan-three [vSuperSaiyanThree]="superSaiyanThree"></app-super-saiyan-three>
-          <p *ngIf="superSaiyanThree >20000">Superiative!</p>
+
         </div>
         <div class="col-3">
           <p>Power Level</p><app-super-saiyan-four [vSuperSaiyanFour]="superSaiyanFour"></app-super-saiyan-four>
-          <p *ngIf="superSaiyanFour==50000">The One!</p>
+
         </div>
       </div>
     </div>

@@ -1,0 +1,19 @@
+<!-- {{vQuoteCollection | json}} -->
+
+<div *ngFor="let quote of vQuoteCollection; let idex =index" >
+  <div [ngClass]="{'quotes': quote.status===true}">
+    <div class="row">
+      <div class="col-6">
+        <p>"{{quote.quote}}" <br> <span> - {{quote.fullName}}</span></p>
+      </div>
+      <div class="col-2">
+        <h1>{{quote.count}}</h1>
+      </div>
+      <div class="offset-4" [ngClass]="{'mover':true}">
+        <button (click)="onButtonClick('up',quote)" type="button" name="button" [ngClass]="{'upButton':true}">Vote Up</button><br>
+        <button (click)="onButtonClick('down',quote)"type="button" name="button" [ngClass]="{'downButton':true}">Vote Down</button><br>
+        <button (click)="onButtonClick('del',quote)"type="button" name="button" [ngClass]="{'deleteButton':true}">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
