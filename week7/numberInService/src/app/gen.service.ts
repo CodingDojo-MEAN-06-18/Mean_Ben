@@ -27,9 +27,6 @@ export class GenService {
   getNumberB():number[]{
     return this.numbersB;
   }
-  // getSum():number{
-  //   return this.sum;
-  // }
 
 
   getDifference(){
