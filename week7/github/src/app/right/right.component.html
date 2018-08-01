@@ -1,0 +1,10 @@
+<h1>Your Score: {{score}}</h1>
+<span  [ngClass]="{'red':true}" *ngIf="score <20">Needs Work!</span>
+<span [ngClass]="{'orange':true}"  *ngIf="score >=20 && score <50">A decent start!</span>
+<span [ngClass]="{'purple':true}" *ngIf="score >=50 && score<100">Doing good!</span>
+<span [ngClass]="{'blue':true}" *ngIf="score >= 100 && score<200">Great Job!</span>
+<span [ngClass]="{'green':true}" *ngIf="score >= 200">GitHub Ellite!</span>
+
+<!-- <div *ngIf="userExist==false">
+  <p>nothing happenss</p>
+</div> -->

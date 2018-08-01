@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-// import {BehaviorSubject} from "Rxjs";
+import {BehaviorSubject} from "Rxjs";
+import {HttpClient} from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
@@ -9,20 +10,22 @@ export class DataService {
   ninjaArray: any= [];
   total: number = 0;
 
-  // totalCount: BehaviorSubject<number> = new BehaviorSubject(0)
+  totalCount: BehaviorSubject<number> = new BehaviorSubject(0)
 
   constructor() { }
+
+
   getNinjaArr(){
     return this.ninjaArray;
   }
-  // get the total count
+  // get the total gold count
   getTotal(){
     for(let n of this.ninjaArray ){
       this.total = this.total + n.gold;
     }
     console.log(this.total);
     this.total=0;
-    return this.total;
+    return this.totalCount.next(this.total);
   }
 
   pushOneN(n){

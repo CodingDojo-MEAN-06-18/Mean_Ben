@@ -15,7 +15,9 @@ export class PartOneComponent implements OnInit {
 
   ngOnInit() {
     this.ninjaArray = this._dataService.getNinjaArr();
-    this.total = this._dataService.getTotal();
+    // this._dataService.totalCount.subscrible(
+    //   (totalCount) =>{this.total =totalCount}
+    // )
   }
 
 }
