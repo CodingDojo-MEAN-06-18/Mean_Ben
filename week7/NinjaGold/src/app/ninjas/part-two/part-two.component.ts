@@ -30,6 +30,7 @@ export class PartTwoComponent implements OnInit {
        console.log('house');
      this._dataService.getRandomN('house');
     }
+    // total gold count will be updated whenever a button is clicked
     this._dataService.getTotal();
   }
 

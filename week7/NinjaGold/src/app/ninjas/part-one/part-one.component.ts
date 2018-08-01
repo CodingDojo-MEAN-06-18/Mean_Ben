@@ -9,7 +9,9 @@ import { DataService } from "../../data.service";
 export class PartOneComponent implements OnInit {
   ninjaArray: number[]= [];
   total: number = 0;
-  constructor(private _dataService: DataService) { }
+  constructor(private _dataService: DataService) {
+
+   }
 
   ngOnInit() {
     this.ninjaArray = this._dataService.getNinjaArr();

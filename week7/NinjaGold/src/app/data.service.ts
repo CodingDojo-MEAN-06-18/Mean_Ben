@@ -1,17 +1,21 @@
 import { Injectable } from '@angular/core';
+// import {BehaviorSubject} from "Rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
+
   ninjaArray: any= [];
   total: number = 0;
+
+  // totalCount: BehaviorSubject<number> = new BehaviorSubject(0)
 
   constructor() { }
   getNinjaArr(){
     return this.ninjaArray;
   }
-
+  // get the total count
   getTotal(){
     for(let n of this.ninjaArray ){
       this.total = this.total + n.gold;
@@ -51,7 +55,6 @@ export class DataService {
           gold: Math.floor(Math.random()*100)+1
         })
       }
-
 
     }else if(location ==="house"){
       this.pushOneN({
