@@ -14,10 +14,11 @@ export class RightComponent implements OnInit {
 
   ngOnInit() {
     this._gitService.tasks.subscribe(
-      //(tasks) =>{this.tasks = tasks}
-      (tasks:any) =>{
+
+      (score:number) =>{
       this.userExist = true;
-      this.score =tasks.public_repos + tasks.followers
+      // console.log(public_repos);
+      this.score =score
     }
     );
   }

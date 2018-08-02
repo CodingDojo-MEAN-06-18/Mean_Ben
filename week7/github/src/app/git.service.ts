@@ -8,15 +8,16 @@ import { HttpClient } from '@angular/common/http';
 export class GitService {
   api = 'https://api.github.com/users'
   // user.username = 'limitlessx';
-  tasks: BehaviorSubject<any[]> = new BehaviorSubject([]);
+  tasks: BehaviorSubject<number> = new BehaviorSubject(0);
   constructor(private _http: HttpClient) {
     // this.retrieveTask(user);
   }
 
   retrieveTask(user: {[key:string]:(string)}){
     this._http.get(this.api +'/'+ user.username ).subscribe(
-      (task: any[]) =>{
-        this.tasks.next(task)
+      (task: GitUser) =>{
+        const newScore = task.public_repos +task.followers
+        this.tasks.next(newScore)
         console.log("==================>",task)
       },
       (error) =>{console.log('Oops....not found')}
@@ -33,7 +34,9 @@ export class GitService {
   }
 
 
+}
 
-
-
+interface GitUser{
+  public_repos: number;
+  followers: number;
 }
