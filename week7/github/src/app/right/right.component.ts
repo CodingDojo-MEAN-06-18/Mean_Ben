@@ -14,7 +14,6 @@ export class RightComponent implements OnInit {
 
   ngOnInit() {
     this._gitService.tasks.subscribe(
-
       (score:number) =>{
       this.userExist = true;
       // console.log(public_repos);

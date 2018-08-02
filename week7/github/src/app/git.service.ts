@@ -16,7 +16,7 @@ export class GitService {
   retrieveTask(user: {[key:string]:(string)}){
     this._http.get(this.api +'/'+ user.username ).subscribe(
       (task: GitUser) =>{
-        const newScore = task.public_repos +task.followers
+        const newScore = task.public_repos +task.followers;
         this.tasks.next(newScore)
         console.log("==================>",task)
       },

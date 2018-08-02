@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="offset-4">
+    <h2>{{weatherData.name}}</h2>
+
+  </div>
+</div>
+<div class="row" *ngIf="dataExist==true && weatherData.length !==0">
+  <div class="col-6" >
+    <p>Humidity: {{weatherData.main.temp}}</p>
+    <p>Temperature(Average): {{weatherData.name}}</p>
+    <p>Temperature(High): {{weatherData.main.temp_max}}</p>
+    <p>Temperature(low): {{weatherData.main.temp_min}}</p>
+    <p>Status: {{weatherData.weather[0].main}}</p>
+  </div>
+  <div class="col-6">
+    <img src="https://as1.ftcdn.net/jpg/01/79/69/70/500_F_179697075_XKfPGjzq5IMEtb1QWWctf80s35PnZtdx.jpg" alt="Seattle" style="width:537px; height:232px ">
+  </div>
+</div>
