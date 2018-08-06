@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h3>Products List</h3>
+    </div>
+  </div>
+  <div  class="row">
+    <div *ngFor ="let product of productsList; let idex =index " class="col-3" style="border:1px solid black;">
+      <p>id: {{product.id}}</p>
+      <img src="{{product.url}}" alt="bike" style="width:244px; height:130px;">
+      <p>title: {{product.title}}</p>
+      <p>price: {{product.price}}</p>
+      <button type="button" name="button" (click)="onEdit(product.id)" class="btn btn-warning">EDIT</button>
+      <button type="button" name="button" (click)="onDele(product)" class="btn btn-danger">Delete</button>
+    </div>
+  </div>
+</div> <!-- end of line -->
+<!-- <app-product-creation></app-product-creation> -->
+<!-- {{productsList | json}} -->

@@ -1,0 +1,63 @@
+<div>
+  <div class="row">
+    <div class="col">
+      <h2>This is an Editing Page</h2>
+      {{product | json}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-4">
+      <form (submit)="onUpdate($event, form)" #form="ngForm">
+        <div class="form-group ">
+          <label for="forTitle">Title:</label>
+          <input type="text"
+          class="form-control"
+          id="titleID"
+          aria-describedby="titleHelp" placeholder="Enter Title"
+          name="title"
+          required
+          minlength="4"
+          maxlength="24"
+          [(ngModel)]="product.title"
+          #title="ngModel"
+
+          >
+          {{title.errors | json}}
+        </div>
+
+        <div class="form-group">
+          <label for="forPrice">Price: </label>
+          <input type="number"
+          class="form-control"
+          id="priceID"
+          placeholder="Enter Price"
+          name="price"
+          required
+          minlength="1"
+          maxlength="36"
+          [(ngModel)]="product.price"
+          #price="ngModel"
+
+          >
+          {{price.errors | json}}
+        </div>
+        <div class="form-group">
+          <label for="forUrl">Image Url:</label>
+          <input type="text"
+          class="form-control"
+          id="imageUrl"
+          name="url"
+          [(ngModel)]="product.url"
+          #url="ngModel"
+
+          >
+
+        </div>
+        <div class="text-right">
+          <button [disabled]="form.invalid" type="submit" class="btn btn-primary " >Update</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
