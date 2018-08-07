@@ -16,24 +16,22 @@ export class EditComponent implements OnInit {
     private route: ActivatedRoute,
     private productService: ProductService
   ) {
-  }
-
-  ngOnInit() {
     this.route.paramMap.subscribe(
       params => {
       console.log(params.get('productId'));
       this.product = this.productService.getProduct(params.get('productId'))
         // .subscribe(product => (this.product = product))
     });
+  }
+
+  ngOnInit() {
+
 
   }
   onUpdate(event:Event, form: NgForm){
     event.preventDefault;
     console.log('updating form',this.product);
     this.productService.updateProdct(this.product);
-    // this.ppm.push(form.value);
-    // console.log(this.ppm);
-    // this.ppm =[];
     this.router.navigateByUrl('/products');
   }
 

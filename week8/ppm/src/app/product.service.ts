@@ -14,25 +14,21 @@ export class ProductService {
   }
   // get one book
   getProduct(productId:string){
-    // console.log("found the wanted product===>",productsList.find( item => item.id===productId))
-    // return productsList.find( item => item.id===productId)
     for(let product of productsList){
       const strProduct = (product.id).toString()
       if(strProduct ===productId){
         return product;
       }
     }
-
   }
 
   createProdct(product){
     console.log('creating product',product)
-    productsList.push(product)
+     productsList.push(product)
   }
   updateProdct(product: Product){
     console.log('updating product', product.id)
     for(let productL of productsList){
-      // const strProduct = (product.id).toString()
       if(productL.id ===product.id){
         console.log('============>',product)
         productL = product

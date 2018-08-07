@@ -24,6 +24,11 @@ export const productsList: any[] =[
     price: 500,
     url:'https://images.pexels.com/photos/1149601/pexels-photo-1149601.jpeg?auto=compress&cs=tinysrgb&h=350'
   },
+  { id:randomId(),
+    title:"bike",
+    price: 500,
+    url:'https://images.pexels.com/photos/1149601/pexels-photo-1149601.jpeg?auto=compress&cs=tinysrgb&h=350'
+  },
 ];
 
 function randomId(): number{

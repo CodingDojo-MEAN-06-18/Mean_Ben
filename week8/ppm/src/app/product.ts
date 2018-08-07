@@ -1,6 +1,6 @@
 export class Product {
   constructor(
-    public id?: null,
+    public id: number = Math.floor(Math.random()*1000),
     public title?: string,
     public price?: number,
     public url?: string
