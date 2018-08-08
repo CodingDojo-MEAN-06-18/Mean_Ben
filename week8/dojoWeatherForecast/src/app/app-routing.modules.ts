@@ -8,8 +8,9 @@ import { CitiesComponent } from './cities/cities.component';
 import { NavComponent } from './nav/nav.component';
 import { HomeComponent } from './home/home.component';
 
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+
+
+
 
 const routes: Routes = [
   {
@@ -17,7 +18,7 @@ const routes: Routes = [
     pathMatch: 'full',
     component: HomeComponent,
     children: []
-  }
+  },
   {
     path: 'cities',
     component: CitiesComponent,

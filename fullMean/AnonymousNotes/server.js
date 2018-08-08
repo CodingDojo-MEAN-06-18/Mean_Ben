@@ -11,9 +11,13 @@ require('./server/config/database')
 
 app.use(bodyParser.urlencoded({extended: true}))
   .use(bodyParser.json())
+  .use(function(req,res,next){
+    console.log(req.url);
+    next();
+  })
   .use(express.static(path.resolve('dist/public')))
   .use('/api', require('./server/routes'))
-  .use('/notes', require('./server/routes/note.routes'))
+  //.use('/notes', require('./server/routes/note.routes'))
 
 
 

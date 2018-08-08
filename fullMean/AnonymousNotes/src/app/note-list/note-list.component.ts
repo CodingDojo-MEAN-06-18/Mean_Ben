@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
 import { NoteService } from '../note.service';
 import { Note } from '../note';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-note-list',
@@ -10,13 +11,22 @@ import { Note } from '../note';
 export class NoteListComponent implements OnInit {
   noteList: Array<Note> =[];
   constructor(private noteService: NoteService) {
-
-   }
-
-  ngOnInit() {
     this.noteService.getNotes().subscribe(
       (notes) => {this.noteList = notes;}
     )
+   }
+
+  ngOnInit() {
+
+  }
+
+  onEventCreat(note){
+    console.log('event triggered', note)
+    this.noteService.createNote(note).subscribe(
+      (note)=> {
+          console.log("======>",note);
+      }
+    );
   }
 
 }

@@ -2,18 +2,17 @@ const Note = require('mongoose').model('Note');
 
 module.exports = {
   // get all notes
-  index(res,req){
+  index(req,res){
     Note.find({})
-      .then(books => res.json(books))
+      .then(notes => res.json(notes))
       .catch(console.log)
     },
   // create a note
-  create(res,req){
+  create(req, res){
     Note.create(req.body)
       .then(note =>res.json(note))
       .catch(console.log)
   },
-  // index(res,req){},
-  // index(res,req){}
+
 
 }
