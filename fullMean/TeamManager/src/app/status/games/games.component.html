@@ -1,0 +1,21 @@
+<div class="container">
+    <table class="table">
+      <thead class="thead-grey">
+        <tr>
+          <th scope="col">Team Name</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody >
+        <tr *ngFor="let player of playerList">
+          <th scope="row">{{player.name}}</th>
+          <td>
+            <button type="button" name="button" [ngClass]="{'green': player.game[gameNumber].default[0]===0}" (click)="onColorSwitch(player,0)">Playing</button>
+            <button type="button" name="button" [ngClass]="{'red': player.game[gameNumber].default[0]===1}" (click)="onColorSwitch(player,1)">Not Playing</button>
+            <button type="button" name="button" [ngClass]="{'yellow': player.game[gameNumber].default[0]===2}" (click)="onColorSwitch(player,2)">Undecided</button>
+          </td>
+        </tr>
+      </tbody>
+
+  </table>
+</div>

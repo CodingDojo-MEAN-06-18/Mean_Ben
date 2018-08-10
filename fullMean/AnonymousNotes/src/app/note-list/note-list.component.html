@@ -4,8 +4,9 @@
 
 
   <app-note-create (newNote)="onEventCreat($event)"></app-note-create>
+  <app-note-details [noteList]="noteList"></app-note-details>
 
-  <div *ngFor="let note of noteList.reverse()" class="row my-3" style="background-color:white; border:2px solid black;">
+  <!-- <div *ngFor="let note of noteList.reverse()" class="row my-3" style="background-color:white; border:2px solid black;">
 
     <div class="col-12 text-right" >
       <p>id: {{note._id}}</p> <p>Noted On: {{note.createdAt | date:'medium'}}</p>
@@ -13,7 +14,7 @@
     <div class="col">
       <p>{{note.note}}</p>
     </div>
-  </div>
+  </div> -->
 
 
 </div><!-- end of line -->

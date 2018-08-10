@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row py-4" style="background-color:white; border:2px solid black;">
+    <div class="col-12">
+      <form (submit)="onSubmit($event, form)" #form="ngForm">
+        <div class="row">
+          <div class="col-2">
+            <label for="forNote">Player Name: </label>
+          </div>
+          <div class="col-9">
+            <input style="width:814px; height: 60%; border:2px solid black;"
+            type="text"
+            placeholder="Enter Your Name Here"
+            name="name"
+            required
+            minlength="2"
+            maxlength="50"
+            [(ngModel)]="player.name"
+            #name="ngModel"
+            >
+            <div>
+              {{name.errors | json}}
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-2">
+            <label for="forNote">Preferred Position: </label>
+          </div>
+          <div class="col-9">
+            <input style="width:814px; height: 87%; border:2px solid black;"
+            type="text"
+            placeholder="Enter Your Preferred(Optional)"
+            name="position"
+            [(ngModel)]="player.position"
+            #position="ngModel"
+            >
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-1 ml-3 mt-2">
+            <button [disabled]="form.invalid" type="submit" class="btn btn-primary" >Add</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div><!-- end of line -->

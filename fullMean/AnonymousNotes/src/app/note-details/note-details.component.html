@@ -1,0 +1,13 @@
+<div class="container">
+
+  <div *ngFor="let note of noteList.reverse()" class="row my-3" style="background-color:white; border:2px solid black;">
+
+    <div class="col-12 text-right" >
+      <p>id: {{note._id}}</p> <p>Noted On: {{note.createdAt | date:'medium'}}</p>
+    </div>
+    <div class="col">
+      <p>{{note.note}}</p>
+    </div>
+  </div>
+
+</div><!-- end of line -->

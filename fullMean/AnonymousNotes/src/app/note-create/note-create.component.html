@@ -7,7 +7,7 @@
             <label for="forNote">Note: </label>
           </div>
           <div class="col-9">
-            <input style="width:833px; height: 100%; border:2px solid black;"
+            <input style="width:814px; height: 100%; border:2px solid black;"
             type="text"
             placeholder="Enter Notes Here"
             name="note"
@@ -22,7 +22,7 @@
             </div>
           </div>
           <div class="col-1 ml-3 mt-2">
-            <button type="submit" class="btn btn-primary">Add Notes</button>
+            <button [disabled]="form.invalid" type="submit" class="btn btn-primary" >Add Notes</button>
           </div >
         </div>
       </form>
